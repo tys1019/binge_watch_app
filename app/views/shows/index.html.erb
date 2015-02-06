@@ -1,5 +1,8 @@
 Index
 
 <% @shows.each do |show| %>
-  <%= render 'artwork', :show => show %>
+  <section>
+    <%= render 'artwork', :show => show %>
+    <%= render 'showtext', :show => show %>
+  </section>
 <% end %>
