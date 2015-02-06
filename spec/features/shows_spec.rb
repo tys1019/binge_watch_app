@@ -10,6 +10,6 @@ RSpec.feature 'Managing shows' do
   scenario 'Show all TV shows and episodes' do
     visit '/shows'
 
-    expect(page).to have_selector 'section', count: 3
+    expect(page).to have_selector 'section'
   end
 end

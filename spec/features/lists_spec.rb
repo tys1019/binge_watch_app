@@ -1,13 +1,11 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.feature 'Managing list' do
-#   scenario 'Add show to list' do
-#     List.create!
+RSpec.feature 'Managing list' do
+  scenario 'Add show to list' do
+    visit '/lists/1'
 
-#     visit '/'
+    click_on 'Add'
 
-#     click_on 'Add'
-
-#     expect(page).to have_content '10'
-#   end
-# end
+    expect(page).to have_content '3.5'
+  end
+end
