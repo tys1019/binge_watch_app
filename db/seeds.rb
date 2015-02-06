@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Show.delete_all
+
+breaking = Show.create!(name: 'Breaking Bad', artwork: 'www.pics.com')
+wire = Show.create!(name: 'The Wire', artwork: 'www.pics.com')
+firefly = Show.create!(name: 'Firefly', artwork: 'www.pics.com')
