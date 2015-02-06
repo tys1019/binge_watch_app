@@ -1,0 +1,17 @@
+User Stories
+
+-As a user, when I visit the home page, I want to see a list of suggested shows.
+
+-As a user, when I visit the list page, I want to see a list of all available shows.
+
+-As a user, on any page with shows, I want to click a button to add/remove show from my queue.
+
+-As a user, when I visit my queue, I want to be able to mark episodes as viewed.
+
+-As a user, I want to be able to mark a season as complete and have it mark all episodes in that season as viewed.
+
+-As a user, I want to be able to mark a show as complete and have it mark all episodes as viewed.
+
+-As a user, I want to be able to view my total time binge time updating as shows are added/removed.
+
+-As a user, I want all of my finished shows to appear at the bottom of the queue.
