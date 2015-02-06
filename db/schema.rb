@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206171134) do
+ActiveRecord::Schema.define(version: 20150206184831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "episodes", force: :cascade do |t|
+    t.string  "name"
+    t.integer "number"
+    t.integer "length"
+    t.integer "season_id"
+    t.integer "show_id"
+  end
+
+  add_index "episodes", ["season_id"], name: "index_episodes_on_season_id", using: :btree
+  add_index "episodes", ["show_id"], name: "index_episodes_on_show_id", using: :btree
 
   create_table "lists", force: :cascade do |t|
     t.string   "name"
@@ -22,9 +33,19 @@ ActiveRecord::Schema.define(version: 20150206171134) do
     t.datetime "updated_at"
   end
 
+  create_table "seasons", force: :cascade do |t|
+    t.string  "number"
+    t.integer "show_id"
+  end
+
+  add_index "seasons", ["show_id"], name: "index_seasons_on_show_id", using: :btree
+
   create_table "shows", force: :cascade do |t|
     t.string "name"
     t.string "artwork"
   end
 
+  add_foreign_key "episodes", "seasons"
+  add_foreign_key "episodes", "shows"
+  add_foreign_key "seasons", "shows"
 end

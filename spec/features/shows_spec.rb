@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 RSpec.feature 'Managing shows' do
-  scenario 'Visit the welcome page' do
+  scenario 'Welcome page shows all the TV shows' do
     visit '/'
 
-    expect(page).to have_selector 'section', count: 3
+    expect(page).to have_selector 'section', count: Show.count
   end
 
-  scenario 'Visit the index page' do
+  scenario 'Show all TV shows' do
     visit '/shows'
 
-    expect(page).to have_selector 'section', count: 3
+    expect(page).to have_selector 'section', count: Show.count
   end
 end
