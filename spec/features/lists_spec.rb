@@ -14,10 +14,11 @@ RSpec.feature 'Managing list' do
        breaking.seasons.find(season.id).episodes << Episode.create!(number: i, length: 42)
     end
 
-    visit "/lists/#{list.id}"
+
+    visit '/shows'
 
     click_on 'Add'
 
-    expect(page).to have_content '3.5'
+    expect(page).to have_content 'You have'
   end
 end

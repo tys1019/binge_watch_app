@@ -1,6 +1,22 @@
-// app/assets/stylesheets/application.css.sass
-
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body { @extend .container; }
+
+section { @extend .container-fluid;
+  margin: 30px;
+ }
+
+body > main { @extend .row;
+  section { @extend .col-md-11; }
+  .artwork { @extend .col-md-5;  }
+  .show_text { @extend .col-md-6; }
+}
+
+
+
+
+
+
 

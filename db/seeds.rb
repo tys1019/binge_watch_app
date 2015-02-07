@@ -20,3 +20,13 @@ firefly = Show.create!(name: 'Firefly', artwork: 'http://thetvdb.com/banners/_ca
    breaking.seasons << Season.create!(number: i)
    breaking.seasons.find(i).episodes << Episode.create!(number: i, length: 42)
 end
+
+1.upto(5) do |i|
+   firefly.seasons << Season.create!(number: i)
+   firefly.seasons.find_by(number: i).episodes << Episode.create!(number: i, length: 42)
+end
+
+1.upto(5) do |i|
+   wire.seasons << Season.create!(number: i)
+   wire.seasons.find_by(number: i).episodes << Episode.create!(number: i, length: 42)
+end
