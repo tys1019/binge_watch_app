@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207191112) do
+ActiveRecord::Schema.define(version: 20150207215921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150207191112) do
     t.integer "length"
     t.integer "season_id"
     t.integer "show_id"
+    t.boolean "watched?",  default: false, null: false
   end
 
   add_index "episodes", ["season_id"], name: "index_episodes_on_season_id", using: :btree
@@ -46,18 +47,7 @@ ActiveRecord::Schema.define(version: 20150207191112) do
     t.text   "description"
   end
 
-  create_table "statuses", force: :cascade do |t|
-    t.boolean "watched",    default: false, null: false
-    t.integer "list_id"
-    t.integer "episode_id"
-  end
-
-  add_index "statuses", ["episode_id"], name: "index_statuses_on_episode_id", using: :btree
-  add_index "statuses", ["list_id"], name: "index_statuses_on_list_id", using: :btree
-
   add_foreign_key "episodes", "seasons"
   add_foreign_key "episodes", "shows"
   add_foreign_key "seasons", "shows"
-  add_foreign_key "statuses", "episodes"
-  add_foreign_key "statuses", "lists"
 end

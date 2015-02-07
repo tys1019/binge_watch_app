@@ -1,6 +1,13 @@
 <div class="show_text well">
-  <p class="time_left"><%= show.runtime %></p>
+  <h3 class="time_left"><%= show.runtime %> HOURS TO BINGE</h3>
   <p><%= show.description %></p>
-  <%= button_to "Add", status_path %>
+  <% show.seasons.each do |season| %>
+    <ul><h4>Season <%= season.number %></h4>
+    <% season.episodes.each do |episode| %>
+      <li class="episode">Episode <%= episode.number %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
 </div>
 
