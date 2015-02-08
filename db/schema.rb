@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20150207215921) do
     t.integer "length"
     t.integer "season_id"
     t.integer "show_id"
-    t.boolean "watched?",  default: false, null: false
+    t.boolean "watched",   default: false, null: false
   end
 
   add_index "episodes", ["season_id"], name: "index_episodes_on_season_id", using: :btree

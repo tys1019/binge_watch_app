@@ -26,6 +26,23 @@ RSpec.feature 'Managing shows' do
     visit '/shows'
 
     expect(page).to have_selector 'section'
-    expect(page).to have_selector 'episode'
+    expect(page).to have_selector 'li.episode'
+  end
+
+  scenario 'Mark an episode as watched' do
+    breaking = Show.create!(name: 'Breaking Bad', artwork: 'http://thetvdb.com/banners/_cache/posters/81189-10.jpg', description: "Mild-.")
+
+    season = Season.create(number: 1)
+    episode = Episode.create!(number: 1, length: 42)
+    breaking.seasons << season
+    season.episodes << episode
+    breaking.episodes << episode
+
+    visit '/shows'
+
+    check('episode_watched')
+    click_on('Update')
+
+    expect(page).to have_content 'watched'
   end
 end

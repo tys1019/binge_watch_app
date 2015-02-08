@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   resources :shows, only: [:index]
   resources :lists, only: [:show]
+  resources :episodes, only: [:show]
 
-  post 'shows/:id', to: 'statuses#create'
+  patch 'episodes/:id', to: 'episodes#update'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

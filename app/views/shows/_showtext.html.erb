@@ -1,13 +1,13 @@
 <div class="show_text well">
   <h3 class="time_left"><%= show.runtime %> HOURS TO BINGE</h3>
   <p><%= show.description %></p>
+
   <% show.seasons.each do |season| %>
     <ul><h4>Season <%= season.number %></h4>
-    <% season.episodes.each do |episode| %>
-      <li class="episode">Episode <%= episode.number %></li>
-    <% end %>
+      <% season.episodes.sort.each do |episode| %>
+      <li class="episode">Episode <%= episode.number %> <%= render 'checkbox', :episode => episode %></li>
+      <% end %>
     </ul>
   <% end %>
 
 </div>
-
