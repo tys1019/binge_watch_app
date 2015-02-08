@@ -1,6 +1,12 @@
 <div class="show_text well">
+
+<% if show.time_left > 0 %>
   <h3 class="time_left"><%= show.time_left %> HOURS TO BINGE</h3>
   <p><%= show.description %></p>
+<% else %>
+  <h3 class="time_left">BINGING COMPLETE!</h3>
+  <p><%= show.description %></p>
+<% end %>
 
 
 
@@ -8,13 +14,15 @@
     <% show.seasons.each do |season| %>
         <li>
           <label for="mylist-node <%= show.id %><%= season.number %>">
-           <h4>Season <%= season.number %></h4>
+             <div class='season'><h4>Season <%= season.number %></h4></div>
+             <%= render 'checkbox', :watched => season %>
           </label>
           <input type="checkbox" id="mylist-node <%= show.id %><%= season.number %>" />
           <ul class="list-unstyled">
               <% season.episodes.sort.each do |episode| %>
               <li class="episode">
-               <div class='ep_column'>Episode <%= episode.number %> </div><%= render 'checkbox', :episode => episode %>
+               <div class='ep_column'>Episode <%= episode.number %> </div>
+               <%= render 'checkbox', :watched => episode %>
               </li>
               <% end %>
             </ul>

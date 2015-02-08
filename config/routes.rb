@@ -5,8 +5,13 @@ Rails.application.routes.draw do
   resources :shows, only: [:index]
   resources :lists, only: [:show]
   resources :episodes, only: [:show]
+  resources :seasons, only: [:show]
 
   patch 'episodes/:id', to: 'episodes#update'
+
+
+  patch 'seasons/:id', to: 'seasons#update'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
