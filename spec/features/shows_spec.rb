@@ -43,6 +43,7 @@ RSpec.feature 'Managing shows' do
     check('episode_watched')
     click_on('Update')
 
-    expect(page).to have_content 'watched'
+
+    expect(page.find('h3')).to have_content '0'
   end
 end

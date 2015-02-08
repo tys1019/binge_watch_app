@@ -6,4 +6,12 @@ class Show < ActiveRecord::Base
   def runtime
     (self.episodes.map(&:length).inject(:+) / 60.0).round(0)
   end
+
+  def time_watched
+    (self.episodes.where(watched: true).map(&:length).inject(:+) / 60.0).round(0)
+  end
+
+  def time_left
+    runtime - time_watched
+  end
 end
