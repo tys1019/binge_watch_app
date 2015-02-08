@@ -2,12 +2,20 @@
   <h3 class="time_left"><%= show.time_left %> HOURS TO BINGE</h3>
   <p><%= show.description %></p>
 
-  <% show.seasons.each do |season| %>
-    <ul><h4>Season <%= season.number %></h4>
-      <% season.episodes.sort.each do |episode| %>
-      <li class="episode">Episode <%= episode.number %> <%= render 'checkbox', :episode => episode %></li>
-      <% end %>
-    </ul>
-  <% end %>
+
+
+  <ul class="collapsibleList list-unstyled">
+    <% show.seasons.each do |season| %>
+        <li>
+          <label for="mylist-node <%= show.id %><%= season.number %>"><h4>Season <%= season.number %></h4></label>
+          <input type="checkbox" id="mylist-node <%= show.id %><%= season.number %>" />
+          <ul class="list-unstyled">
+              <% season.episodes.sort.each do |episode| %>
+              <li class="episode">Episode <%= episode.number %> <%= render 'checkbox', :episode => episode %></li>
+              <% end %>
+            </ul>
+        </li>
+    <% end %>
+  </ul>
 
 </div>
