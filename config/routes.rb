@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
 
   patch 'seasons/:id', to: 'seasons#update'
+  post 'seasons/:id', to: 'seasons#update'
 
 
   post 'shows/:id', to: 'shows#update'

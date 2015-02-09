@@ -1,0 +1,5 @@
+<% if season.episodes.all? { |ep| ep.watched == true } %>
+  <%= button_to "Mark as Unwatched", controller: "seasons", action: "update", id: season.id %>
+<% else %>
+  <%= button_to "Mark as Watched", controller: "seasons", action: "update", id: season.id %>
+<% end %>

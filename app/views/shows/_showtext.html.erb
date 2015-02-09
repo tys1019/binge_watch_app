@@ -15,7 +15,7 @@
         <li>
           <label for="mylist-node <%= show.id %><%= season.number %>">
              <div class='season'><h4>Season <%= season.number %></h4></div>
-             <%= render 'checkbox', :watched => season %>
+             <%= render 'changeseason', :season => season %>
           </label>
           <input type="checkbox" id="mylist-node <%= show.id %><%= season.number %>" />
           <ul class="list-unstyled">
