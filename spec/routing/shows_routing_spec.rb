@@ -8,4 +8,14 @@ RSpec.describe 'routes for shows' do
   it 'routes GET /shows to shows#index' do
     expect(get('/shows')).to route_to('shows#index')
   end
+
+
+  it 'routes POST /shows/1 to shows#update' do
+    expect(patch('/shows/1')).to route_to(
+      controller: 'shows',
+      action: 'update',
+      id: '1'
+      )
+  end
+
 end

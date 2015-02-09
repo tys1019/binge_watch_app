@@ -1,7 +1,7 @@
 <div class="show_text well">
 
 <% if show.time_left > 0 %>
-  <h3 class="time_left"><%= show.time_left %> HOURS TO BINGE</h3> <%= render 'addshow' %>
+  <h3 class="time_left"><%= show.time_left %> HOURS TO BINGE</h3> <%= render 'addshow', :show => show %>
   <p><%= show.description %></p>
 <% else %>
   <h3 class="time_left">BINGING COMPLETE!</h3>

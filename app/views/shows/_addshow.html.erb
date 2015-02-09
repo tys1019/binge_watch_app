@@ -1,1 +1,5 @@
-<%= button_to "Add Show", action: "add" %>
+<% if show.list %>
+  <%= button_to "Add to Queue", action: "update", id: show.id %>
+<% else %>
+  <%= button_to "Remove from Queue", action: "update", id: show.id %>
+<% end %>

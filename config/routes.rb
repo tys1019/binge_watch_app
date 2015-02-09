@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   patch 'seasons/:id', to: 'seasons#update'
 
 
+  post 'shows/:id', to: 'shows#update'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
