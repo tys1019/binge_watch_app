@@ -11,6 +11,11 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <a href="/shows" class="navbar-brand">BINGE-Y</a>
+      <% if List.first.shows == [] %>
+
+      <% else %>
+        <h2>YOU HAVE <%= List.first.shows.map(&:time_left).inject(:+) %> HOURS LEFT TO BINGE</h2>
+      <% end %>
       <ul class='nav navbar-nav navbar-right'></ul>
     </div>
   </div>

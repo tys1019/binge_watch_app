@@ -10,6 +10,7 @@ RSpec.feature 'Managing shows' do
   # end
 
   scenario 'Show all TV shows and episodes' do
+    List.create!
     breaking = Show.create!(name: 'Breaking Bad', artwork: 'http://thetvdb.com/banners/_cache/posters/81189-10.jpg', description: "Mild-.")
         1.upto(5) do |i|
        breaking.seasons << Season.create!(number: i)
@@ -30,6 +31,8 @@ RSpec.feature 'Managing shows' do
   end
 
   scenario 'Mark an episode as watched' do
+    List.create!
+
     breaking = Show.create!(name: 'Breaking Bad', artwork: 'http://thetvdb.com/banners/_cache/posters/81189-10.jpg', description: "Mild-.")
 
     season = Season.create(number: 1)
@@ -48,6 +51,8 @@ RSpec.feature 'Managing shows' do
   end
 
   scenario 'Mark a season as watched' do
+    List.create!
+
     breaking = Show.create!(name: 'Breaking Bad', artwork: 'http://thetvdb.com/banners/_cache/posters/81189-10.jpg', description: "Mild-.")
 
     season = Season.create(number: 1)
@@ -58,8 +63,7 @@ RSpec.feature 'Managing shows' do
 
     visit '/shows'
 
-    check('season_watched')
-    click_on('Update Season')
+    click_on('Mark as Watched')
 
 
     expect(page.find('h3')).to have_content 'COMPLETE'

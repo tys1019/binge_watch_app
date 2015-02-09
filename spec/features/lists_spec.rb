@@ -15,7 +15,8 @@ RSpec.feature 'Managing list' do
 
     visit '/shows'
 
-    click_on 'Add'
+    click_on 'Add to Queue'
+
 
     expect(page).to have_content 'YOU HAVE'
   end

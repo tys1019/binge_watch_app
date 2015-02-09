@@ -23,6 +23,13 @@ body > main { @extend .row;
   margin-bottom: 30px;
 }
 
+.navbar h2 {
+  text-align: center;
+  margin: 10px 0;
+  color: #999999;
+  font-weight: bold;
+}
+
 .collapsibleList li > input + * {
  display: none;
 }
@@ -47,6 +54,14 @@ body > main { @extend .row;
   height: 440px;
   overflow: auto;
   padding: 10px 15px 19px;
+}
+
+.show_text h3 {
+  display: inline;
+}
+
+.binge_time {
+  margin-bottom: 15px;
 }
 
 .time_left {
@@ -74,14 +89,50 @@ body > main { @extend .row;
   @extend .btn-xs;
   @extend .btn-default;
   margin: 5px;
+  display: inline;
+
 }
 
-[value="Update Season"] {
+[value="Add to Queue"] {
   @extend .btn;
   @extend .btn-xs;
-  @extend .btn-default;
+  @extend .btn-success;
+  margin-left: 20px;
+  margin-top: -8px;
+  display: inline;
+}
+
+[value="Remove from Queue"] {
+  @extend .btn;
+  @extend .btn-xs;
+  @extend .btn-danger;
+  margin: 5px;
+    margin-left: 20px;
+  margin-top: -8px;
+  display: inline;
+}
+
+[value="Mark as Watched"] {
+  @extend .btn;
+  @extend .btn-xs;
+  @extend .btn-success;
+  margin: 5px;
+
+}
+
+[value="Mark as Unwatched"] {
+  @extend .btn;
+  @extend .btn-xs;
+  @extend .btn-danger;
   margin: 5px;
 }
+
+.button_to {
+  display: inline;
+
+}
+
+
 
 input[id=season_watched]
     {

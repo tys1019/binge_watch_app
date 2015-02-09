@@ -11,7 +11,7 @@ RSpec.describe 'routes for shows' do
 
 
   it 'routes POST /shows/1 to shows#update' do
-    expect(patch('/shows/1')).to route_to(
+    expect(post('/shows/1')).to route_to(
       controller: 'shows',
       action: 'update',
       id: '1'
