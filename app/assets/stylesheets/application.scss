@@ -14,7 +14,9 @@ body > main { @extend .row;
   section { @extend .col-md-11; }
   .artwork { @extend .col-md-5;  }
   .show_text { @extend .col-md-6; }
+  .artwork_small {@extend .col-md-3; }
 }
+
 
 .navbar {
   padding: 10px;

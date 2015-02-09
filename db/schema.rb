@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208174034) do
+ActiveRecord::Schema.define(version: 20150208190721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,12 +43,16 @@ ActiveRecord::Schema.define(version: 20150208174034) do
   add_index "seasons", ["show_id"], name: "index_seasons_on_show_id", using: :btree
 
   create_table "shows", force: :cascade do |t|
-    t.string "name"
-    t.string "artwork"
-    t.text   "description"
+    t.string  "name"
+    t.string  "artwork"
+    t.text    "description"
+    t.integer "list_id"
   end
+
+  add_index "shows", ["list_id"], name: "index_shows_on_list_id", using: :btree
 
   add_foreign_key "episodes", "seasons"
   add_foreign_key "episodes", "shows"
   add_foreign_key "seasons", "shows"
+  add_foreign_key "shows", "lists"
 end

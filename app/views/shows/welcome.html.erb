@@ -1,8 +1,7 @@
-Hey there
 
+<section>
 <% @shows.each do |show| %>
-  <section>
-    <%= render 'artwork', :show => show %>
-    <%= render 'showtext', :show => show %>
-  </section>
+
+    <div class="artwork_small"><%= render 'artwork', :show => show %></div>
 <% end %>
+</section>
