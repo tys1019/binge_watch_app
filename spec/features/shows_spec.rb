@@ -44,7 +44,7 @@ RSpec.feature 'Managing shows' do
     click_on('Update Episode')
 
 
-    expect(page.find('h3')).to have_content '0'
+    expect(page.find('h3')).to have_content 'COMPLETE'
   end
 
   scenario 'Mark a season as watched' do
@@ -62,6 +62,6 @@ RSpec.feature 'Managing shows' do
     click_on('Update Season')
 
 
-    expect(page.find('h3')).to have_content '0'
+    expect(page.find('h3')).to have_content 'COMPLETE'
   end
 end
