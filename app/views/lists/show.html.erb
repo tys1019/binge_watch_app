@@ -1,8 +1,9 @@
 
-
-<% @list.shows.each do |show| %>
-  <section class="tv_show">
-      <div class='artwork'><%= render 'shows/artwork', :show => show %></div>
-      <%= render 'shows/showtext', :show => show %>
-  </section>
-<% end %>
+<div class="container">
+  <% @list.shows.each do |show| %>
+    <section class="tv_show">
+        <div class='artwork'><%= render 'shows/artwork', :show => show %></div>
+        <%= render 'shows/showtext', :show => show %>
+    </section>
+  <% end %>
+</div>

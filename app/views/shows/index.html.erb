@@ -1,8 +1,10 @@
 
+<div class="container">
+  <% @shows.sort.each do |show| %>
+    <section class="tv_show">
+        <div class="artwork"><%= render 'artwork', :show => show %></div>
+        <%= render 'showtext', :show => show %>
+    </section>
+  <% end %>
 
-<% @shows.sort.each do |show| %>
-  <section class="tv_show">
-      <div class="artwork"><%= render 'artwork', :show => show %></div>
-      <%= render 'showtext', :show => show %>
-  </section>
-<% end %>
+</div>

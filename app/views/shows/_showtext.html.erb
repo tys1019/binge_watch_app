@@ -6,7 +6,7 @@
   </div>
   <p><%= show.description %></p>
 <% else %>
-  <h3 class="time_left">BINGING COMPLETE!</h3>
+  <h3 class="time_left">BINGING COMPLETE!</h3> <%= render 'shows/addshow', :show => show %>
   <p><%= show.description %></p>
 <% end %>
 

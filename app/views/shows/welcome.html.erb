@@ -1,7 +1,13 @@
 
 <section>
-<% @shows.each do |show| %>
+<% @shows.sort.each do |show| %>
 
-    <div class="artwork_small"><%= render 'artwork', :show => show %></div>
+    <div class="artwork_small">
+      <%= render 'artwork', :show => show %>
+      <div class="add_remove">
+        <%= render 'shows/addshow', :show => show %>
+      </div>
+
+    </div>
 <% end %>
 </section>

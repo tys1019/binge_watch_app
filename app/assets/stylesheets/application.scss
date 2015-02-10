@@ -2,7 +2,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body { @extend .container;
+body {
     background-color: #d6d6d6;
      }
 
@@ -130,19 +130,16 @@ body > main { @extend .row;
 
 .button_to {
   display: inline;
-
 }
 
 .img-responsive {
   display: inline;
 }
 
-input[id=season_watched]
-    {
-        /* Double-sized Checkboxes */
-        -ms-transform: scale(2); /* IE */
-        -moz-transform: scale(2);
-        -webkit-transform: scale(2); /* Safari and Chrome */
-        -o-transform: scale(2); /* Opera */
-        padding: 10px;
-    }
+.add_remove {
+  margin: 20px;
+}
+
+.add_remove input {
+  @extend .col-md-9;
+}

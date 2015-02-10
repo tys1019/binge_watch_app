@@ -9,6 +9,11 @@
 
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top">
+
+  <div class="jumbotron">
+    <img src="/assets/bb.jpg" alt="binge_time">
+  </div>
+
     <div class="container">
       <a href="/shows" class="navbar-brand">BINGE-Y</a>
       <% if List.first.shows == [] %>
@@ -25,7 +30,6 @@
 
   <%= yield %>
   </main>
-
 
   </div>
 </body>
