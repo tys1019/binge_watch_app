@@ -2,7 +2,7 @@
 
 <% @list.shows.each do |show| %>
   <section class="tv_show">
-      <%= render 'shows/artwork', :show => show %>
-
+      <div class='artwork'><%= render 'shows/artwork', :show => show %></div>
+      <%= render 'shows/showtext', :show => show %>
   </section>
 <% end %>

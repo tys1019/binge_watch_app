@@ -1,7 +1,7 @@
 <% if show.list == List.first %>
-  <%= button_to "Remove from Queue", action: "update", id: show.id %>
+  <%= button_to "Remove from Queue", controller: "shows", action: "update", id: show.id %>
 
 <% else %>
-  <%= button_to "Add to Queue", action: "update", id: show.id %>
+  <%= button_to "Add to Queue", controller: "shows",  action: "update", id: show.id %>
 
 <% end %>

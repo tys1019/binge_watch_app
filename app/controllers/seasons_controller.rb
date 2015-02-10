@@ -12,7 +12,7 @@ class SeasonsController < ApplicationController
       end
 
       @season.save
-      redirect_to "/shows"
+      redirect_to(:back)
     else
       @season.watched = true
       @season.episodes.each do |episode|
@@ -20,7 +20,7 @@ class SeasonsController < ApplicationController
         episode.save
       end
       @season.save
-      redirect_to "/shows"
+      redirect_to(:back)
     end
   end
 

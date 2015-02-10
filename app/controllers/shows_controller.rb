@@ -18,11 +18,11 @@ class ShowsController < ApplicationController
 
       @show.list = nil
       @show.save
-      redirect_to "/shows"
+      redirect_to(:back)
     else
       @show.list = List.first
       @show.save
-      redirect_to "/shows"
+      redirect_to(:back)
     end
 
   end
