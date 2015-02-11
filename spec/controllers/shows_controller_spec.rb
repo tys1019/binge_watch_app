@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'byebug'
 
 RSpec.describe ShowsController do
   describe 'GET welcome' do
@@ -44,7 +45,7 @@ RSpec.describe ShowsController do
 
       show = Show.create!
       list = List.create!
-      patch :update, id: show
+      patch :update, id: show, list_id: show[:list_id]
       show.reload
       expect(show.list).to eq list
     end
@@ -54,18 +55,18 @@ RSpec.describe ShowsController do
 
       show = Show.create!
       list = List.create!
-      show.list = list
+      show.lists << list
       show.save
-      patch :update, id: show
+      patch :update, id: show, list_id: show[:list_id]
       show.reload
       expect(show.list).to eq nil
     end
 
     it 'assigns @show' do
       @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
-
+      list = List.create!
       show = Show.create!
-      patch :update, id: show
+      patch :update, id: show, list_id: list.id
       expect(assigns(:show)).to eq show
     end
   end

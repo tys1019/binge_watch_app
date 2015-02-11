@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'shows#welcome'
 
-  resources :shows, only: [:index]
+  resources :shows, only: [:index, :show]
   resources :lists, only: [:index, :new, :create, :show]
   resources :episodes, only: [:show]
   resources :seasons, only: [:show]
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
 
   post 'shows/:id', to: 'shows#update'
+  patch 'shows/:id', to: 'shows#update'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
