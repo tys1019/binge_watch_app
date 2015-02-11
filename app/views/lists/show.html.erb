@@ -1,11 +1,47 @@
 
 
-<h2> <%= @list.name %> </h2>
+
 <div class="container">
+<h2> <%= @list.name %> </h2>
   <% @list.shows.each do |show| %>
     <section class="tv_show">
         <div class='artwork'><%= render 'shows/artwork', :show => show %></div>
-        <%= render 'shows/showtext', :show => show %>
+
+
+        <div class="show_text well">
+          <div class="binge_time">
+            <h3 class="time_left"><%=  %> HOURS TO BINGE</h3>
+          </div>
+         <p><%= show.description %></p>
+
+          <ul class="collapsibleList list-unstyled">
+            <% show.seasons.each do |season| %>
+                <li>
+                  <label for="mylist-node <%= show.id %><%= season.number %>">
+                     <div class='season'><h4>Season <%= season.number %></h4></div>
+
+                  </label>
+                  <input type="checkbox" id="mylist-node <%= show.id %><%= season.number %>" />
+                  <ul class="list-unstyled">
+                    <% season.episodes.sort.each do |episode| %>
+                      <li class="episode">
+                       <div class='ep_column'>Episode <%= episode.number %> </div>
+                        <% if episode.vieweds.where(list_id: @list.id).first.viewed == true %>
+                          <%= button_to "Mark as Unwatched", controller: "vieweds", action: "toggle_viewed", id: episode.vieweds.where(list_id: @list.id).first.id %>
+                        <% else %>
+                          <%= button_to "Mark as Watched", controller: "vieweds", action: "toggle_viewed", id: episode.vieweds.where(list_id: @list.id).first.id %>
+                        <% end %>
+
+                      </li>
+                    <% end %>
+                    </ul>
+                </li>
+              <% end %>
+          </ul>
+
+        </div>
     </section>
   <% end %>
 </div>
+
+

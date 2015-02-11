@@ -10,10 +10,10 @@ class Show < ActiveRecord::Base
   end
 
   def time_watched
-    if self.episodes.where(watched: true) == []
+    if self.vieweds.where(viewed: true) == []
       0
     else
-      (self.episodes.where(watched: true).map(&:length).inject(:+) / 60.0).round(0)
+      (self.vieweds.where(viewed: true).map { |v| v.episode.length }.inject(:+) / 60.0).round(0)
     end
   end
 

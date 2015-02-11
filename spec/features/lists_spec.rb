@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Managing list' do
   scenario 'Create new list' do
 
-    list = List.create!
+    list = List.create!(name: 'Whomp')
 
     breaking = Show.create!(name: 'Breaking Bad', artwork: 'http://thetvdb.com/banners/_cache/posters/81189-10.jpg', description: "Mild-.")
 

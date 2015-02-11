@@ -1,12 +1,14 @@
 <div class="show_text well">
 
-
+<% if show.time_left > 0 %>
   <div class="binge_time">
-    <h3 class="time_left"><%= show.runtime %> HOURS TO BINGE</h3> <%= render 'shows/addshow', :show => show %>
+    <h3 class="time_left"><%= show.time_left %> HOURS TO BINGE</h3> <%= render 'shows/addshow', :show => show %>
   </div>
   <p><%= show.description %></p>
-
-
+<% else %>
+  <h3 class="time_left">BINGING COMPLETE!</h3> <%= render 'shows/addshow', :show => show %>
+  <p><%= show.description %></p>
+<% end %>
 
 
 
@@ -15,12 +17,18 @@
         <li>
           <label for="mylist-node <%= show.id %><%= season.number %>">
              <div class='season'><h4>Season <%= season.number %></h4></div>
+             <%= render 'shows/changeseason', controller: "seasons",  :season => season %>
           </label>
           <input type="checkbox" id="mylist-node <%= show.id %><%= season.number %>" />
           <ul class="list-unstyled">
               <% season.episodes.sort.each do |episode| %>
               <li class="episode">
                <div class='ep_column'>Episode <%= episode.number %> </div>
+               <% if episode.vieweds.viewed == false %>
+                  <%= button_to "Mark as Watched", controller: "vieweds", action: "toggle_viewed", id: episode.vieweds.id %>
+                <% else %>
+                  <%= button_to "Mark as Unwatched", controller: "vieweds", action: "toggle_viewed", id: episode.vieweds.id %>
+                <% end %>
               </li>
               <% end %>
             </ul>

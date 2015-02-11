@@ -10,7 +10,8 @@ RSpec.feature 'Managing shows' do
   # end
 
   scenario 'Show all TV shows and episodes' do
-    List.create!
+    list = List.create!(name: 'Whomp')
+
     breaking = Show.create!(name: 'Breaking Bad', artwork: 'http://thetvdb.com/banners/_cache/posters/81189-10.jpg', description: "Mild-.")
         1.upto(5) do |i|
        breaking.seasons << Season.create!(number: i)
@@ -31,7 +32,8 @@ RSpec.feature 'Managing shows' do
   end
 
   scenario 'Mark an episode as watched' do
-    list = List.create!
+    list = List.create!(name: 'Whomp')
+
 
     breaking = Show.create!(name: 'Breaking Bad', artwork: 'http://thetvdb.com/banners/_cache/posters/81189-10.jpg', description: "Mild-.")
     list.shows << breaking
@@ -51,7 +53,8 @@ RSpec.feature 'Managing shows' do
   end
 
   scenario 'Mark a season as watched' do
-    List.create!
+    list = List.create!(name: 'Whomp')
+
 
     breaking = Show.create!(name: 'Breaking Bad', artwork: 'http://thetvdb.com/banners/_cache/posters/81189-10.jpg', description: "Mild-.")
 
@@ -60,8 +63,9 @@ RSpec.feature 'Managing shows' do
     breaking.seasons << season
     season.episodes << episode
     breaking.episodes << episode
+    list.shows << breaking
 
-    visit '/shows'
+    visit "/lists/#{list.id}"
 
     click_on('Mark as Watched')
 

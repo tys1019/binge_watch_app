@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :episodes, only: [:show]
   resources :seasons, only: [:show]
 
+  post 'vieweds/:id', to: 'vieweds#toggle_viewed'
+
   patch 'episodes/:id', to: 'episodes#update'
 
 

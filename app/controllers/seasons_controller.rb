@@ -24,4 +24,9 @@ class SeasonsController < ApplicationController
     end
   end
 
+  # def toggle_watched
+  #   @season = Season.find(params[:id])
+  #   @user = @season.user
+  #   @season.watched ? @season.unwatch : @season.watch
+  # end
 end

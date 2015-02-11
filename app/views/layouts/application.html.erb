@@ -18,10 +18,21 @@
           <span class='icon-bar'></span>
         </button>
       </div>
-         <ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
+         <ul class='nav navbar-nav navbar-right navbar-inverse collapse navbar-collapse'>
           <li><%= link_to "SHOWS", shows_path %></li>
-          <li><%= link_to "QUEUE", "lists/1" %></li>
-          <li><%= link_to "NEW QUEUE", new_list_path %></li>
+
+          <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">QUEUES <b class="caret"></b></a>
+              <ul class="dropdown-menu navbar-inverse">
+                  <% List.all.each do |list| %>
+                  <li><%= link_to list.name.upcase, list_path(list) %></li>
+                  <% end %>
+
+                  <li class="divider"></li>
+                  <li><%= link_to "NEW QUEUE", new_list_path %></li>
+              </ul>
+          </li>
+
         </ul>
     </div>
   </div>
