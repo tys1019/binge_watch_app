@@ -40,6 +40,8 @@ RSpec.describe ShowsController do
 
   describe 'POST update' do
     it 'adds a show to a list' do
+      @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
+
       show = Show.create!
       list = List.create!
       patch :update, id: show
@@ -48,6 +50,8 @@ RSpec.describe ShowsController do
     end
 
     it 'removes a show from a list' do
+      @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
+
       show = Show.create!
       list = List.create!
       show.list = list
@@ -58,6 +62,8 @@ RSpec.describe ShowsController do
     end
 
     it 'assigns @show' do
+      @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
+
       show = Show.create!
       patch :update, id: show
       expect(assigns(:show)).to eq show

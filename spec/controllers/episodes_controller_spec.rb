@@ -3,11 +3,13 @@ require 'rails_helper'
 RSpec.describe EpisodesController do
   describe 'PATCH update' do
 
+
     let(:new_attributes) {
         { watched?: true }
       }
 
     it 'updates the requested episode' do
+      @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
       episode = Episode.create!
       patch :update, id: episode, episode: new_attributes
       episode.reload
@@ -15,6 +17,7 @@ RSpec.describe EpisodesController do
     end
 
     it 'assigns @episode' do
+      @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
       episode = Episode.create!
       patch :update, id: episode, episode: new_attributes
       expect(assigns(:episode)).to eq episode

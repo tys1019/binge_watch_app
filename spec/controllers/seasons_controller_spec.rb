@@ -5,6 +5,8 @@ RSpec.describe SeasonsController do
 
 
     it 'updates the requested season' do
+      @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
+
       season = Season.create!
       patch :update, id: season
       season.reload
@@ -12,6 +14,7 @@ RSpec.describe SeasonsController do
     end
 
     it 'marks all episodes as watched in a watched season' do
+      @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
       season = Season.create!
       episode = Episode.create!
       season.episodes << episode
@@ -21,6 +24,8 @@ RSpec.describe SeasonsController do
     end
 
     it 'marks all episodes as unwatched in an unwatched season' do
+      @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
+
       season = Season.create!(watched: true)
       episode = Episode.create!(watched: true)
       season.episodes << episode
@@ -30,6 +35,8 @@ RSpec.describe SeasonsController do
     end
 
     it 'assigns @season' do
+      @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
+
       season = Season.create!
       episode = Episode.create!
       season.episodes << episode
