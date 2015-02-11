@@ -48,7 +48,7 @@ RSpec.describe ShowsController do
 
       patch :update, id: show, show: { list_id: list.id }
       show.reload
-      expect(show.list).to eq list
+      expect(show.lists.first).to eq list
     end
 
     it 'removes a show from a list' do
@@ -58,16 +58,17 @@ RSpec.describe ShowsController do
       list = List.create!
       show.lists << list
       show.save
-      patch :update, id: show, list_id: show[:list_id]
+
+      patch :update, id: show, show: { list_id: list.id }
       show.reload
-      expect(show.list).to eq nil
+      expect(show.lists).to eq []
     end
 
     it 'assigns @show' do
       @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
       list = List.create!
       show = Show.create!
-      patch :update, id: show, list_id: list.id
+      patch :update, id: show, show: { list_id: list.id }
       expect(assigns(:show)).to eq show
     end
   end

@@ -19,18 +19,9 @@
         </button>
       </div>
          <ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
-          <li>
-            <div class="title_bar">
-            <% if List.first.shows == [] %>
-                <h2>FIND A SHOW TO BINGE!</h2>
-            <% else %>
-              <h2>YOU HAVE <%= List.first.shows.map(&:time_left).inject(:+) %> HOURS LEFT TO BINGE!</h2>
-            <% end %>
-            </div>
-           </li>
-          <li><%= link_to "SHOWS", "/shows" %></li>
+          <li><%= link_to "SHOWS", shows_path %></li>
           <li><%= link_to "QUEUE", "lists/1" %></li>
-          <li><%= link_to "NEW QUEUE", "lists/new" %></li>
+          <li><%= link_to "NEW QUEUE", new_list_path %></li>
         </ul>
     </div>
   </div>
@@ -42,7 +33,10 @@
   </main>
 
 
+
   </div>
+<h6><%= render 'flash' %></h6>
+
 </body>
 
 </html>

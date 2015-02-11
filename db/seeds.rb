@@ -8,7 +8,7 @@
 Show.destroy_all
 List.destroy_all
 
-List.create!
+List.create!(name: "Default")
 
 
 
