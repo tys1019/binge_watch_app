@@ -9,19 +9,29 @@
 
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top">
-
-  <div class="jumbotron">
-    <img src="/assets/bb.jpg" alt="binge_time">
-  </div>
-
     <div class="container">
-      <a href="/shows" class="navbar-brand">BINGE-Y</a>
-      <% if List.first.shows == [] %>
-          <h2>FIND A SHOW TO BINGE!</h2>
-      <% else %>
-        <h2>YOU HAVE <%= List.first.shows.map(&:time_left).inject(:+) %> HOURS LEFT TO BINGE</h2>
-      <% end %>
-      <ul class='nav navbar-nav navbar-right'></ul>
+      <div class="navbar-header">
+      <a href="/" class="navbar-brand">BINGE-Y</a>
+        <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+        </button>
+      </div>
+
+         <ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
+          <li>
+            <div class="title_bar">
+            <% if List.first.shows == [] %>
+                <h2>FIND A SHOW TO BINGE!</h2>
+            <% else %>
+              <h2>YOU HAVE <%= List.first.shows.map(&:time_left).inject(:+) %> HOURS LEFT TO BINGE</h2>
+            <% end %>
+            </div>
+           </li>
+          <li><%= link_to "SHOWS", "/shows" %></li>
+          <li><%= link_to "QUEUE", "lists/1" %></li>
+        </ul>
     </div>
   </div>
 
@@ -31,7 +41,11 @@
   <%= yield %>
   </main>
 
+
   </div>
 </body>
 
 </html>
+
+
+

@@ -1,4 +1,6 @@
-
+<div  id="fancy">
+  <img class="img-responsive" src="assets/bb.jpg" alt="bb">
+</div>
 <section>
 <% @shows.sort.each do |show| %>
 
@@ -7,7 +9,7 @@
       <div class="add_remove">
         <%= render 'shows/addshow', :show => show %>
       </div>
-
     </div>
+
 <% end %>
 </section>

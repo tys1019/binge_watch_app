@@ -4,6 +4,7 @@
 
 body {
     background-color: #d6d6d6;
+    overflow-x: hidden;
      }
 
 section { @extend .container-fluid;
@@ -11,24 +12,37 @@ section { @extend .container-fluid;
  }
 
 body > main { @extend .row;
-  section { @extend .col-md-11; }
-  .artwork { @extend .col-md-5;  }
-
-  .show_text { @extend .col-md-6; }
-  .artwork_small {@extend .col-md-3; }
+  section { @extend .col-lg-12; }
+  .artwork {  @extend .col-lg-4; @extend .col-md-5; @extend .col-sm-5; @extend .col-xs-3;  }
+  .show_text { @extend .col-lg-6; @extend .col-md-7; }
+  .artwork_small {@extend .col-lg-3; @extend .col-md-3; @extend .col-sm-4; @extend .col-xs-6; }
 }
 
 
 .navbar {
   padding: 10px;
   margin-bottom: 30px;
+  text-align: center;
 }
+
 
 .navbar h2 {
   text-align: center;
-  margin: 10px 0;
+  margin: 10px auto;
   color: #999999;
   font-weight: bold;
+  font-size: 200%;
+  display: inline-block;
+}
+
+.title_bar {
+  margin: 0 auto;
+  display: inline;
+
+}
+
+#fancy {
+  @extend .col-lg-12;
 }
 
 .collapsibleList li > input + * {
@@ -132,14 +146,23 @@ body > main { @extend .row;
   display: inline;
 }
 
-.img-responsive {
+.artwork_small .img-responsive {
   display: inline;
+  max-height: 441px;
 }
 
 .add_remove {
-  margin: 20px;
+  margin: 20px auto;
 }
 
 .add_remove input {
-  @extend .col-md-9;
+
+
+
+  display: block;
+  margin: 0 auto;
+}
+
+.artwork_small {
+  margin: 10px 0;
 }
