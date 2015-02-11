@@ -151,6 +151,10 @@ body > main { @extend .row;
   max-height: 441px;
 }
 
+.artwork .img-responsive {
+  display: inline;
+  max-height: 440px;
+}
 .add_remove {
   margin: 20px auto;
 }
