@@ -45,7 +45,8 @@ RSpec.describe ShowsController do
 
       show = Show.create!
       list = List.create!
-      patch :update, id: show, list_id: show[:list_id]
+
+      patch :update, id: show, show: { list_id: list.id }
       show.reload
       expect(show.list).to eq list
     end
