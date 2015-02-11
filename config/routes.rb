@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'shows#welcome'
 
   resources :shows, only: [:index]
-  resources :lists, only: [:show]
+  resources :lists, only: [:index, :new, :create, :show]
   resources :episodes, only: [:show]
   resources :seasons, only: [:show]
 

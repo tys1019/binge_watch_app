@@ -31,17 +31,17 @@ RSpec.feature 'Managing shows' do
   end
 
   scenario 'Mark an episode as watched' do
-    List.create!
+    list = List.create!
 
     breaking = Show.create!(name: 'Breaking Bad', artwork: 'http://thetvdb.com/banners/_cache/posters/81189-10.jpg', description: "Mild-.")
-
+    list.shows << breaking
     season = Season.create(number: 1)
     episode = Episode.create!(number: 1, length: 42)
     breaking.seasons << season
     season.episodes << episode
     breaking.episodes << episode
 
-    visit '/shows'
+    visit "/lists/#{list.id}"
 
     check('episode_watched')
     click_on('Update Episode')

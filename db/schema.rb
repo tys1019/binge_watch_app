@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208190721) do
+ActiveRecord::Schema.define(version: 20150211165305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20150208190721) do
     t.datetime "updated_at"
   end
 
+  create_table "lists_shows", id: false, force: :cascade do |t|
+    t.integer "list_id"
+    t.integer "show_id"
+  end
+
+  add_index "lists_shows", ["list_id"], name: "index_lists_shows_on_list_id", using: :btree
+  add_index "lists_shows", ["show_id"], name: "index_lists_shows_on_show_id", using: :btree
+
   create_table "seasons", force: :cascade do |t|
     t.string  "number"
     t.integer "show_id"
@@ -51,8 +59,19 @@ ActiveRecord::Schema.define(version: 20150208190721) do
 
   add_index "shows", ["list_id"], name: "index_shows_on_list_id", using: :btree
 
+  create_table "vieweds", force: :cascade do |t|
+    t.integer "list_id"
+    t.integer "episode_id"
+    t.boolean "viewed",     default: false, null: false
+  end
+
+  add_index "vieweds", ["episode_id"], name: "index_vieweds_on_episode_id", using: :btree
+  add_index "vieweds", ["list_id"], name: "index_vieweds_on_list_id", using: :btree
+
   add_foreign_key "episodes", "seasons"
   add_foreign_key "episodes", "shows"
   add_foreign_key "seasons", "shows"
   add_foreign_key "shows", "lists"
+  add_foreign_key "vieweds", "episodes"
+  add_foreign_key "vieweds", "lists"
 end
