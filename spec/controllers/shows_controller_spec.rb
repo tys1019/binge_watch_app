@@ -44,17 +44,33 @@ RSpec.describe ShowsController do
       @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
 
       show = Show.create!
+      episode = show.episodes.create!
       list = List.create!
 
       patch :update, id: show, show: { list_id: list.id }
       show.reload
       expect(show.lists.first).to eq list
+
     end
+
+    it 'adds episodes to a list' do
+      @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
+
+      show = Show.create!
+      episode = show.episodes.create!
+      list = List.create!
+      expect {
+          patch :update, id: show, show: { list_id: list.id }
+          }.to change(Viewed, :count).by 1
+
+    end
+
 
     it 'removes a show from a list' do
       @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
 
       show = Show.create!
+      episode = show.episodes.create!
       list = List.create!
       show.lists << list
       show.save
@@ -62,6 +78,24 @@ RSpec.describe ShowsController do
       patch :update, id: show, show: { list_id: list.id }
       show.reload
       expect(show.lists).to eq []
+    end
+
+    it 'adds episodes to a list' do
+      @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
+
+      show = Show.create!
+      episode = show.episodes.create!
+      list = List.create!
+      list.shows << show
+      v = list.vieweds.create!
+      v.show = show
+      v.episode = episode
+      v.save
+      expect {
+          patch :update, id: show, show: { list_id: list.id }
+          }.to change(Viewed, :count).by -1
+
+
     end
 
     it 'assigns @show' do

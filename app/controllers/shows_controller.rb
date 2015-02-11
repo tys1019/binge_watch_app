@@ -16,6 +16,9 @@ class ShowsController < ApplicationController
 
     if @show.lists.include?(@list)
 
+
+      @list.vieweds.where(show_id: @show.id).destroy_all
+
       @show.lists.delete(@list)
       @show.save
       redirect_to(:back)
@@ -27,6 +30,7 @@ class ShowsController < ApplicationController
         viewed = Viewed.create
         viewed.episode = episode
         viewed.list = @list
+        viewed.show = @show
         viewed.save
       end
       redirect_to(:back)

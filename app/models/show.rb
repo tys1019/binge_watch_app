@@ -2,6 +2,7 @@ require 'byebug'
 class Show < ActiveRecord::Base
   has_many :seasons, dependent: :destroy
   has_many :episodes
+  has_many :vieweds
   has_and_belongs_to_many  :lists
 
   def runtime
