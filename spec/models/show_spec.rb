@@ -34,16 +34,4 @@ RSpec.describe Show do
     end
   end
 
-  describe '.time_watched' do
-    it 'calculates the total watched of show' do
-      expect(test_show.time_watched).to eq 3
-    end
-  end
-
-  describe '.time_left' do
-    it 'calculates the total watched of show' do
-      expect(test_show.time_left).to eq 0
-    end
-  end
-
 end

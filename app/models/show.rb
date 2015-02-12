@@ -9,15 +9,15 @@ class Show < ActiveRecord::Base
     (self.episodes.map(&:length).inject(:+) / 60.0).round(0)
   end
 
-  def time_watched
-    if self.vieweds.where(viewed: true) == []
-      0
-    else
-      (self.vieweds.where(viewed: true).map { |v| v.episode.length }.inject(:+) / 60.0).round(0)
-    end
-  end
+  # def time_watched
+  #   if self.vieweds.where(viewed: true) == []
+  #     0
+  #   else
+  #     (self.vieweds.where(viewed: true).map { |v| v.episode.length }.inject(:+) / 60.0).round(0)
+  #   end
+  # end
 
-  def time_left
-    self.runtime - self.time_watched
-  end
+  # def time_left
+  #   self.runtime - self.time_watched
+  # end
 end
