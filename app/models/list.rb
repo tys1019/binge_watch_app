@@ -30,4 +30,8 @@ class List < ActiveRecord::Base
       (vieweds.where(viewed: false).map{|v| v.episode.length}.inject(:+) / 60.0 ).round(0)
     end
   end
+
+  def has_show?(show)
+    shows.include?(show)
+  end
 end

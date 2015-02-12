@@ -116,22 +116,19 @@ body > main { @extend .row;
 
 }
 
-[value="Add to Queue"] {
+[value^="Add to "] {
   @extend .btn;
   @extend .btn-xs;
   @extend .btn-success;
-  margin-left: 20px;
-  margin-top: -8px;
+  margin: 5px;
   display: inline;
 }
 
-[value="Remove from Queue"] {
+[value^="Remove from "] {
   @extend .btn;
   @extend .btn-xs;
   @extend .btn-danger;
   margin: 5px;
-    margin-left: 20px;
-  margin-top: -8px;
   display: inline;
 }
 
@@ -164,15 +161,17 @@ body > main { @extend .row;
   max-height: 440px;
 }
 .add_remove {
-  margin: 20px auto;
+  margin: 10px;
 }
 
 .add_remove input {
-
-
-
   display: block;
   margin: 0 auto;
+}
+
+.new_list {
+ display: inline;
+ @extend .col-lg-10;
 }
 
 .artwork_small {

@@ -12,7 +12,7 @@
           <div class="binge_time">
             <h3 class="time_left"><%= show.runtime - @list.time_watched(show)%> HOURS TO BINGE</h3>
 
-        <%= button_to "Remove from Queue", controller: "shows", action: "remove_from_queue", list_id: @list.id, id: show.id %>
+    <%= button_to "Remove from #{@list.name.upcase}", controller: "shows", action: "update", list_id: @list.id, id: show.id %>
  </div>
          <p><%= show.description %></p>
 

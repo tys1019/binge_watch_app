@@ -2,6 +2,7 @@
 
 
   <div class="binge_time">
+        <%= render 'shows/addshow', :show => show %>
     <h3 class="time_left"><%= show.runtime %> HOURS TO BINGE</h3> <%= render 'shows/addshow', :show => show %>
   </div>
   <p><%= show.description %></p>
