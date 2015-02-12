@@ -1,4 +1,4 @@
 <%= form_for show do |f| %>
     <%= f.collection_select(:list_id, List.all, :id, :name) %>
-    <%= f.submit %>
+    <%= f.submit :AddToQueue %>
 <% end %>

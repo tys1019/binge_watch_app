@@ -9,6 +9,8 @@ class ViewedsController < ApplicationController
 
     @viewed.viewed == true ? @viewed.viewed = false : @viewed.viewed = true
     @viewed.save
-    redirect_to(:back)
+    redirect_to :back
   end
+
+
 end

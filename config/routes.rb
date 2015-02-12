@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   post 'seasons/:id', to: 'seasons#update'
 
 
-  post 'shows/:id', to: 'shows#update'
-  patch 'shows/:id', to: 'shows#update'
+  # post 'shows/:id', to: 'shows#update'
+  post 'shows/:id', to: 'shows#remove_from_queue'
+  patch 'shows/:id', to: 'shows#add_to_queue'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

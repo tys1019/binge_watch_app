@@ -1,1 +1,11 @@
-<%= render 'shows/form', :show => show %>
+
+
+<% List.all.each do |list| %>
+  <% if list.shows.include?(show) %>
+    <%= button_to "Remove from #{list.name.upcase}", controller: "shows", action: "remove_from_queue", list_id: list.id, id: show.id %>
+  <% else %>
+    <%= button_to "Add to #{list.name.upcase}", controller: "shows", action: "add_to_queue", list_id: list.id, id: show.id %>
+  <% end %>
+<% end %>
+<!-- <#%= render 'shows/form', :show => show %> -->
+

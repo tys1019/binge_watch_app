@@ -2,7 +2,7 @@
 
 
 <div class="container">
-<h2> <%= @list.name %> </h2>
+  <div class="title"><h1> <%= @list.name.upcase %> HAS <%= @list.time_left %> HOURS LEFT TO BINGE</h1></div>
   <% @list.shows.each do |show| %>
     <section class="tv_show">
         <div class='artwork'><%= render 'shows/artwork', :show => show %></div>
@@ -10,8 +10,10 @@
 
         <div class="show_text well">
           <div class="binge_time">
-            <h3 class="time_left"><%=  %> HOURS TO BINGE</h3>
-          </div>
+            <h3 class="time_left"><%= show.runtime - @list.time_watched(show)%> HOURS TO BINGE</h3>
+
+        <%= button_to "Remove from Queue", controller: "shows", action: "remove_from_queue", list_id: @list.id, id: show.id %>
+ </div>
          <p><%= show.description %></p>
 
           <ul class="collapsibleList list-unstyled">
@@ -19,6 +21,8 @@
                 <li>
                   <label for="mylist-node <%= show.id %><%= season.number %>">
                      <div class='season'><h4>Season <%= season.number %></h4></div>
+
+
 
                   </label>
                   <input type="checkbox" id="mylist-node <%= show.id %><%= season.number %>" />

@@ -1,5 +1,6 @@
-<%= form_for viewed do |f| %>
-  <%= f.check_box :viewed %>
+<%= form_for show do |f| %>
+  <%= f.label list.name %>
+  <%= f.check_box :list_id %>
   <%= f.submit %>
 <% end %>
 

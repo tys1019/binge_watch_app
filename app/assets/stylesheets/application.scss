@@ -25,6 +25,14 @@ body > main { @extend .row;
   text-align: center;
 }
 
+.title {
+  @extend .col-lg-12;
+}
+
+.title h1 {
+  text-align: center;
+  font-weight: bold;
+}
 
 .navbar h2 {
   text-align: center;
@@ -169,4 +177,17 @@ body > main { @extend .row;
 
 .artwork_small {
   margin: 10px 0;
+}
+
+
+li .divider {
+  background-color: #777777;
+}
+
+.dropdown-menu > li > a {
+  color: #777777;
+}
+
+h6 {
+  color: #d6d6d6;
 }
