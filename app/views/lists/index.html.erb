@@ -1,9 +1,20 @@
+
+<div id="fancy">
+  <%= image_tag('bb.jpg', class: "img-responsive") %>
+</div>
 <section>
 <% @lists.each do |list| %>
-  <h2><%= list.name %></h2>
+
+    <div class="artwork_small">
+    <h2><%= link_to list.name.upcase, list_path(list) %></h2>
+
+      <% if list.shows == [] %>
+      <% else %>
+      <%= render 'shows/artwork', :show => list.shows.first %>
+      <% end %>
+    </div>
+
 <% end %>
-
-
-
 </section>
+
 

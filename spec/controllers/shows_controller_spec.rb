@@ -47,7 +47,7 @@ RSpec.describe ShowsController do
       episode = show.episodes.create!
       list = List.create!
 
-      patch :update, id: show, show: { list_id: list.id }
+      patch :update, id: show, list_id: list.id
       show.reload
       expect(show.lists.first).to eq list
 
@@ -60,7 +60,7 @@ RSpec.describe ShowsController do
       episode = show.episodes.create!
       list = List.create!
       expect {
-          patch :update, id: show, show: { list_id: list.id }
+          patch :update, id: show, list_id: list.id
           }.to change(Viewed, :count).by 1
 
     end
@@ -75,7 +75,7 @@ RSpec.describe ShowsController do
       show.lists << list
       show.save
 
-      patch :update, id: show, show: { list_id: list.id }
+      patch :update, id: show, list_id: list.id
       show.reload
       expect(show.lists).to eq []
     end
@@ -92,7 +92,7 @@ RSpec.describe ShowsController do
       v.episode = episode
       v.save
       expect {
-          patch :update, id: show, show: { list_id: list.id }
+          patch :update, id: show, list_id: list.id
           }.to change(Viewed, :count).by -1
 
 
@@ -102,7 +102,7 @@ RSpec.describe ShowsController do
       @request.env['HTTP_REFERER'] = 'localhost:3000/shows'
       list = List.create!
       show = Show.create!
-      patch :update, id: show, show: { list_id: list.id }
+      patch :update, id: show, list_id: list.id
       expect(assigns(:show)).to eq show
     end
   end

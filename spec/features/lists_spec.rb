@@ -22,7 +22,7 @@ RSpec.feature 'Managing list' do
     click_on 'Create List'
 
 
-    expect(page).to have_content 'Test'
+    expect(page).to have_content 'TEST'
   end
 
 
@@ -41,8 +41,7 @@ RSpec.feature 'Managing list' do
 
     visit '/shows'
 
-    select('Test', :from => 'show_list_id')
-    click_on 'Update Show'
+    click_on 'Add to TEST'
 
 
     expect(page.find('h6')).to have_content(/successfully/i)
@@ -63,6 +62,6 @@ RSpec.feature 'Managing list' do
     visit ("/lists/#{list.id}")
 
 
-    expect(page).to have_content('Test')
+    expect(page).to have_content('TEST')
   end
 end

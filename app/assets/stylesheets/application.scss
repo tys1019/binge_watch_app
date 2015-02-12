@@ -149,6 +149,7 @@ body > main { @extend .row;
 
 .button_to {
   display: inline;
+  margin: 5px;
 }
 
 .artwork_small .img-responsive {
@@ -156,12 +157,17 @@ body > main { @extend .row;
   max-height: 441px;
 }
 
+.artwork_small {
+  text-align: center;
+
+}
+
 .artwork .img-responsive {
   display: inline;
   max-height: 440px;
 }
 .add_remove {
-  margin: 10px;
+  margin: 5px;
 }
 
 .add_remove input {

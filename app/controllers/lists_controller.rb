@@ -17,7 +17,7 @@ class ListsController < ApplicationController
 
     if @list.save
       flash[:success] = 'Queue successfully created.'
-      redirect_to lists_path
+      redirect_to "/lists"
     else
       render :new
     end
