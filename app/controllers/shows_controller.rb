@@ -1,4 +1,4 @@
-require 'byebug'
+
 
 class ShowsController < ApplicationController
   def welcome

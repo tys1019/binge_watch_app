@@ -1,4 +1,4 @@
-require 'byebug'
+
 class SeasonsController < ApplicationController
 
   def update

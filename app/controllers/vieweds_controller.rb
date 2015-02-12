@@ -1,4 +1,4 @@
-require 'byebug'
+
 
 # the name is Viewed because of problems with reserved words
 # it is a join between episodes, shows and user lists that says whether or not an episode has been viewed by that user

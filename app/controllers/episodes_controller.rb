@@ -1,4 +1,4 @@
-require 'byebug'
+
 class EpisodesController < ApplicationController
 
   def update
