@@ -34,4 +34,8 @@ class List < ActiveRecord::Base
   def has_show?(show)
     shows.include?(show)
   end
+
+  def destroy_vieweds
+    vieweds.destroy_all
+  end
 end

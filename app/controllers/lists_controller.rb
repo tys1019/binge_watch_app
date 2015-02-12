@@ -23,6 +23,13 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list = List.find(params[:id])
+    @list.destroy_vieweds
+    @list.destroy
+    redirect_to "/"
+  end
+
 private
 
   def list_params

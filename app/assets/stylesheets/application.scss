@@ -147,6 +147,16 @@ body > main { @extend .row;
   margin: 5px;
 }
 
+[value="DELETE QUEUE"] {
+  @extend .btn;
+  @extend .btn-xs;
+  @extend .btn-danger;
+  margin: 5px auto;
+}
+.delete {
+  @extend .row;
+}
+
 .button_to {
   display: inline;
   margin: 5px;

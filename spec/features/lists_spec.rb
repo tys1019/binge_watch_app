@@ -64,4 +64,16 @@ RSpec.feature 'Managing list' do
 
     expect(page).to have_content('TEST')
   end
+
+  scenario 'Create new list' do
+
+    list = List.create!(name: 'Whomp')
+
+    visit "/lists/#{list.id}"
+
+    click_on 'DELETE QUEUE'
+
+
+    expect(response).to redirect_to("/")
+  end
 end

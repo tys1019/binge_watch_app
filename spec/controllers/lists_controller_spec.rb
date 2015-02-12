@@ -82,7 +82,20 @@ RSpec.describe ListsController do
     end
   end
 
+  describe 'DELETE destroy' do
+    it 'destroys the requested list' do
+      list = List.create!
+      expect {
+        delete :destroy, id: list
+      }.to change(List, :count).by(-1)
+    end
 
+    it 'redirects to the lists list' do
+      list = List.create!
+      delete :destroy, id: list
+      expect(response).to redirect_to "/"
+    end
+  end
 
 
 end
