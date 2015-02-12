@@ -30,8 +30,8 @@ RSpec.describe 'routes for lists' do
       )
   end
 
-  it 'routes DELETE /lists/1 to the lists controller and sets id' do
-    expect(delete('lists/1')).to route_to(
+  it 'routes POST /lists/1 to the lists controller and sets id' do
+    expect(post('lists/1')).to route_to(
       controller: 'lists',
       action: 'destroy',
       id: '1'

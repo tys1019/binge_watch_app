@@ -74,6 +74,6 @@ RSpec.feature 'Managing list' do
     click_on 'DELETE QUEUE'
 
 
-    expect(response).to redirect_to("/")
+    expect(page.find('h6')).to have_content(/successfully/i)
   end
 end

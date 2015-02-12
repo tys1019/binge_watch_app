@@ -27,6 +27,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @list.destroy_vieweds
     @list.destroy
+    flash[:success] = 'List successfully destroyed.'
     redirect_to "/"
   end
 
